@@ -1,0 +1,8 @@
+snippet gd get_dict
+	get_${1:name}() ->
+		erlang:get(d_${1}).
+	set_${1}(${2:Data}) ->
+		erlang:put(d_${1}, ${2}).
+
+snippet "(^.*\(.*\) *->) *" "-spec"
+	%% @doc ${1:doc}`!p snip.rv = f"\n-spec {match.group(1)} any().\n{match.group(1)}"`
